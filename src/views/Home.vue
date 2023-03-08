@@ -1,4 +1,36 @@
-<script></script>
+<script>
+import { watch, ref } from "vue";
+export default {
+  props: ["width"],
+  setup(props) {
+    let widthData = ref(props.width); //偵測螢幕寬度
+    const numDecoRight1 = ref(1);
+    const numDecoLeft1 = ref(1);
+    const decoWordSpeed = (widthData) => {
+      if (widthData.value < 540) {
+        console.log(" < 540");
+        numDecoRight1.value = -0.1;
+        numDecoLeft1.value = 0.1;
+      } else {
+        console.log(" > 990");
+        numDecoRight1.value = -0.2;
+        numDecoLeft1.value = 0.2;
+      }
+    };
+    decoWordSpeed(widthData);
+    watch(
+      () => props.width,
+      (newWidth, oldWidth) => {
+        widthData.value = newWidth;
+        console.log("widthData.value", widthData.value);
+        decoWordSpeed(widthData);
+      }
+    );
+
+    return { widthData, numDecoRight1, numDecoLeft1 };
+  },
+};
+</script>
 <template>
   <div>
     <div class="wrap-1" id="option1">
@@ -106,11 +138,11 @@
         </div>
       </div>
       <div class="deco-word-wrap">
-        <scroll-parallax :speed="-0.5" :left="true" direction="x">
+        <scroll-parallax :speed="numDecoRight1" :left="true" direction="x">
           <div class="deco-word deco-word-1">CREATIVE &</div>
         </scroll-parallax>
 
-        <scroll-parallax :speed="0.5" :left="true" direction="x">
+        <scroll-parallax :speed="numDecoLeft1" :left="true" direction="x">
           <div class="deco-word deco-word-2">COORDINATION</div>
         </scroll-parallax>
       </div>
@@ -176,10 +208,10 @@
         </div>
       </div>
       <div class="deco-word-wrap">
-        <scroll-parallax :speed="-0.2" :left="true" direction="x">
+        <scroll-parallax :speed="-0.1" :left="true" direction="x">
           <div class="deco-word deco-word-3">PASSION &</div>
         </scroll-parallax>
-        <scroll-parallax :speed="0.2" :left="true" direction="x">
+        <scroll-parallax :speed="0.1" :left="true" direction="x">
           <div class="deco-word deco-word-4">PURPOSE</div>
         </scroll-parallax>
       </div>
@@ -318,7 +350,7 @@
   font-size: 70px;
   padding-left: 130px;
   color: #fff;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 @media screen and (min-width: 540px) {
   .wrap1-deco-inner {
@@ -423,8 +455,9 @@ ol.skill-describe > li::before {
   font-size: 86px;
   line-height: 86px;
   font-weight: 600;
-  padding-left: 300px;
-  width: 350px;
+  margin-left: -300px;
+  margin-top: 25px;
+  width: 400px;
 }
 @media screen and (min-width: 991px) {
   .deco-word.deco-word-1,
@@ -440,9 +473,9 @@ ol.skill-describe > li::before {
   font-weight: 100;
   display: flex;
   justify-content: flex-end;
-  font-size: 56px;
+  font-size: 66px;
   line-height: 56px;
-  padding-right: 300px;
+  padding-left: 850px;
 }
 
 @media screen and (min-width: 991px) {
@@ -453,9 +486,13 @@ ol.skill-describe > li::before {
     padding-right: 200px;
   }
 }
+.deco-word.deco-word-2 {
+  padding-left: 900px;
+}
+
 .deco-word.deco-word-3 {
   width: 350px;
-  padding-left: 400px;
+  margin-left: -280px;
 }
 @media screen and (min-width: 991px) {
   .deco-word.deco-word-3 {
@@ -464,7 +501,7 @@ ol.skill-describe > li::before {
   }
 }
 .deco-word.deco-word-4 {
-  margin-right: 500px;
+  margin-right: 0px;
 }
 @media screen and (min-width: 991px) {
   .deco-word.deco-word-4 {

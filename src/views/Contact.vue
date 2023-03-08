@@ -1,4 +1,8 @@
-<script></script>
+<script>
+export default {
+  setup() {},
+};
+</script>
 <template>
   <div class="content-contact">
     <div class="contact">
@@ -49,17 +53,18 @@
     </div>
   </div>
 </template>
-<style>
+<style scoped>
 .content-contact-wrap {
   height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-content.content-contact {
+.content-contact {
   width: 100%;
   display: flex;
   height: 100%;
+  flex-flow: 1;
 }
 .contact {
   width: 100%;

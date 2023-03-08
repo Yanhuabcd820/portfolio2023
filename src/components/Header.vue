@@ -1,8 +1,29 @@
 <script>
-import { onMounted, ref } from "vue";
+// import { useWindowSize } from "@vueuse/core";
+import { onMounted, watch, ref } from "vue";
 export default {
-  name: "app",
-  setup() {
+  name: "Header",
+  props: ["width"],
+  setup(props) {
+    // const { width } = useWindowSize();
+    // let widthData = width.value; //偵測螢幕寬度
+    // watch(width, (newWidth, oldWidth) => {
+    //   widthData = newWidth;
+    // });
+    let widthData = ref(props.width); //偵測螢幕寬度
+    watch(
+      () => props.width,
+      (newWidth, oldWidth) => {
+        widthData.value = newWidth;
+        menuSwitch();
+      }
+    );
+    const isOpen = ref(false);
+    const menuSwitch = () => {
+      //若螢幕寬度來到手機版,就啟動
+      if (widthData.value < 540) isOpen.value = !isOpen.value;
+    };
+
     const target = ref();
     const sticking = ref(false);
     let options = {
@@ -16,24 +37,6 @@ export default {
     onMounted(() => {
       observer.observe(target.value);
     });
-    const isOpen = ref(false);
-    const menuSwitch = () => {
-      isOpen.value = !isOpen.value;
-      console.log("isOpen.value", isOpen.value);
-      // 手機版本下, 點選選單按鈕同步將nav關閉
-      // var navLiInner = document.getElementsByClassName("nav-li-inner");
-
-      // for (var z = 0; z < navLiInner.length; z++) {
-      //   navLiInner[z].addEventListener("click", MenuCloseMobile);
-
-      //   function MenuCloseMobile() {
-      //     navInner.classList.remove("open");
-      //     menu.classList.remove("menu-close");
-      //     body.classList.remove("menuStock");
-      //     menuBack.classList.remove("open");
-      //   }
-      // }
-    };
     return {
       target,
       sticking,
@@ -62,26 +65,31 @@ export default {
       <div class="navigation">
         <ul>
           <li class="nav-li">
-            <!-- <a href="index.html" class="nav-li-inner">About</a> -->
-            <router-link to="/" class="nav-li-inner">About</router-link>
+            <router-link to="/" class="nav-li-inner" @click="menuSwitch"
+              >About</router-link
+            >
           </li>
           /
           <li class="nav-li">
-            <router-link to="/works" class="nav-li-inner">Works</router-link>
-            <!-- <a href="works.html" class="nav-li-inner">Works</a> -->
+            <router-link to="/works" class="nav-li-inner" @click="menuSwitch"
+              >Works</router-link
+            >
           </li>
           /
           <li class="nav-li">
-            <a href="resume.html" class="nav-li-inner" target="_blank"
+            <a
+              href="./resume.pdf"
+              class="nav-li-inner"
+              @click="menuSwitch"
+              target="_blank"
               >Resume</a
             >
           </li>
           /
           <li class="nav-li">
-            <router-link to="/contact" class="nav-li-inner"
+            <router-link to="/contact" class="nav-li-inner" @click="menuSwitch"
               >Contact</router-link
             >
-            <!-- <a href="contact.html" class="nav-li-inner">Contact</a> -->
           </li>
         </ul>
       </div>
@@ -253,15 +261,6 @@ nav,
   border-radius: 50px;
   transition: 0.5s;
 }
-/* @media screen and (min-width: 540px) {
-  #menu > span.bar {
-    width: 32px;
-    height: 3px;
-    position: absolute;
-    top: 22px;
-    left: 8px;
-  }
-} */
 #menu > span.bar1 {
   top: 19px;
 }

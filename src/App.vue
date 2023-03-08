@@ -1,26 +1,53 @@
-<template>
-  <body class="body">
-    <Header />
-    <router-view />
-    <Footer />
-  </body>
-</template>
-
 <script>
+// import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
+import { useWindowSize } from "@vueuse/core";
+import { onMounted, watch, ref, reactive } from "vue";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
+import Footer2 from "@/components/Footer2.vue";
 import ScrollParallax from "vue3-parallax/src/components/ScrollParallax.vue";
 import "@/assets/css/reset.css";
 export default {
   components: {
     Header,
     Footer,
+    Footer2,
     ScrollParallax,
+  },
+  setup() {
+    const { width } = useWindowSize();
+    console.log("widthwidth", width.value);
+    const route = useRoute();
+    const router = useRouter();
+    onMounted(async () => {
+      await router.isReady();
+      // console.log("route.path ==", route.path == "/contact");
+    });
+    return { route, width };
   },
 };
 </script>
+<template>
+  <body class="body">
+    <Header :width="width" />
+    <router-view :width="width" />
+    <Footer2 v-if="route.path === '/contact'" />
+    <Footer v-else />
+  </body>
+</template>
+
 <style>
+html {
+  height: 100%;
+}
+div#app {
+  height: 100%;
+}
 body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   font-family: "Noto Sans TC", sans-serif;
   color: var(--grayDark);
   font-size: 17px;
@@ -28,7 +55,7 @@ body {
   line-height: 26px;
 }
 .body {
-  overflow: hidden;
+  /* overflow-x: hidden; */
 }
 a {
   color: var(--grayDark);
@@ -72,8 +99,9 @@ h1.name {
 }
 .deco-word-wrap {
   width: 100%;
-  height: 140px;
+  height: 240px;
   margin-top: -40px;
+  overflow: hidden;
 }
 .deco-word {
   font-family: "Saira Condensed", sans-serif;
