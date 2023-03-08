@@ -4,17 +4,17 @@ export default {
   props: ["width"],
   setup(props) {
     let widthData = ref(props.width); //偵測螢幕寬度
-    const numDecoRight1 = ref(1);
-    const numDecoLeft1 = ref(1);
+    const numDecoRight = ref(1);
+    const numDecoLeft = ref(1);
     const decoWordSpeed = (widthData) => {
       if (widthData.value < 540) {
         console.log(" < 540");
-        numDecoRight1.value = -0.1;
-        numDecoLeft1.value = 0.1;
+        numDecoRight.value = -0.1;
+        numDecoLeft.value = 0.1;
       } else {
         console.log(" > 990");
-        numDecoRight1.value = -0.2;
-        numDecoLeft1.value = 0.2;
+        numDecoRight.value = -0.2;
+        numDecoLeft.value = 0.2;
       }
     };
     decoWordSpeed(widthData);
@@ -27,7 +27,7 @@ export default {
       }
     );
 
-    return { widthData, numDecoRight1, numDecoLeft1 };
+    return { widthData, numDecoRight, numDecoLeft };
   },
 };
 </script>
@@ -138,11 +138,11 @@ export default {
         </div>
       </div>
       <div class="deco-word-wrap">
-        <scroll-parallax :speed="numDecoRight1" :left="true" direction="x">
+        <scroll-parallax :speed="numDecoRight" :left="true" direction="x">
           <div class="deco-word deco-word-1">CREATIVE &</div>
         </scroll-parallax>
 
-        <scroll-parallax :speed="numDecoLeft1" :left="true" direction="x">
+        <scroll-parallax :speed="numDecoLeft" :left="true" direction="x">
           <div class="deco-word deco-word-2">COORDINATION</div>
         </scroll-parallax>
       </div>
@@ -208,10 +208,10 @@ export default {
         </div>
       </div>
       <div class="deco-word-wrap">
-        <scroll-parallax :speed="-0.1" :left="true" direction="x">
+        <scroll-parallax :speed="numDecoRight" :left="true" direction="x">
           <div class="deco-word deco-word-3">PASSION &</div>
         </scroll-parallax>
-        <scroll-parallax :speed="0.1" :left="true" direction="x">
+        <scroll-parallax :speed="numDecoLeft" :left="true" direction="x">
           <div class="deco-word deco-word-4">PURPOSE</div>
         </scroll-parallax>
       </div>
