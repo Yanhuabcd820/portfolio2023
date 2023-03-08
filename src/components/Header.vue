@@ -1,15 +1,9 @@
 <script>
-// import { useWindowSize } from "@vueuse/core";
 import { onMounted, watch, ref } from "vue";
 export default {
   name: "Header",
   props: ["width"],
   setup(props) {
-    // const { width } = useWindowSize();
-    // let widthData = width.value; //偵測螢幕寬度
-    // watch(width, (newWidth, oldWidth) => {
-    //   widthData = newWidth;
-    // });
     let widthData = ref(props.width); //偵測螢幕寬度
     watch(
       () => props.width,
@@ -78,7 +72,7 @@ export default {
           /
           <li class="nav-li">
             <a
-              href="./resume.pdf"
+              href="./doc/resume.pdf"
               class="nav-li-inner"
               @click="menuSwitch"
               target="_blank"

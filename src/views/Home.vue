@@ -455,7 +455,7 @@ ol.skill-describe > li::before {
   font-size: 86px;
   line-height: 86px;
   font-weight: 600;
-  margin-left: -300px;
+  margin-left: -200px;
   margin-top: 25px;
   width: 400px;
 }
@@ -487,7 +487,7 @@ ol.skill-describe > li::before {
   }
 }
 .deco-word.deco-word-2 {
-  padding-left: 900px;
+  padding-left: 650px;
 }
 
 .deco-word.deco-word-3 {
@@ -497,15 +497,15 @@ ol.skill-describe > li::before {
 @media screen and (min-width: 991px) {
   .deco-word.deco-word-3 {
     width: 600px;
-    padding-left: 500px;
+    padding-left: 300px;
   }
 }
 .deco-word.deco-word-4 {
-  margin-right: 0px;
+  margin-right: -300px;
 }
 @media screen and (min-width: 991px) {
   .deco-word.deco-word-4 {
-    margin-right: 200px;
+    margin-right: -200px;
   }
 }
 .wrap-3 {

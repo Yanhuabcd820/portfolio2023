@@ -4,14 +4,21 @@
     <div class="contact">
       <div class="wrap-inner contact-inner">
         <div class="contact-describe">
-          <h1>抱歉沒有你要的資訊</h1>
-          回到首頁
+          <h1>抱歉，這裡沒有你要的資訊</h1>
+          <div class="works-btn-wrap notFount-wrap">
+            <router-link to="/" class="works-btn notFount-btn"
+              >回到首頁</router-link
+            >
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
 <style>
+.content-contact {
+  flex-grow: 1;
+}
 .content-contact-wrap {
   height: 100vh;
   display: flex;
@@ -61,5 +68,13 @@ content.content-contact {
 .link-out {
   font-size: 15px;
   margin-left: 6px;
+}
+
+.notFount-wrap {
+  justify-content: center;
+  margin-top: 30px;
+}
+.notFount-btn {
+  padding: 8px 18px;
 }
 </style>
