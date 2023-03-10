@@ -9,9 +9,9 @@ export default {
           category: "網頁設計",
           category_id: 1,
           work_id: "1-1",
-          description: `將自己過往的作品集整理後露出，使用 vue 框架作為製作。`,
+          description: `匯集過往的作品，並使用 Vue3 框架製作本作品集。`,
           responsible: `
-        Vue3、切版 (html/css/Javascript)、UI/UX 設計`,
+          Vue3、切版 (html/css/Javascript)、UI/UX 設計。`,
           gitHub: "https://github.com/Yanhuabcd820/portfolio2023",
           demo: "https://yanhuabcd820.github.io/portfolio2023/",
           image: "https://tome20.com/yh/images/works1-1-cover.jpg",
@@ -23,56 +23,57 @@ export default {
           category: "網頁設計",
           category_id: 1,
           work_id: "1-2",
-          description: `Simple Twitter 是我們在 Alpha Camp 的畢業專案，是類似於 Twitter 的簡易社群平台，共由 2 位前端及 2 位後端共同遠端協作完成開發，採前後端分離的開發方式，並於 14 天內完成。`,
+          description: `本專案由 4 人（前後端分離）團隊，以遠端協作的方式完成開發，共歷時 14 天。自己主要負責整體網站樣式切版，及製作推文留言、like內容、好友狀態follow功能。這是自己第一次參與團隊協作專案，在 14 天專案時間限制下，團隊成員每天會進行討論並解決問題，過程雖辛苦但非常充實。也從這次的經驗，了解團隊合作的重要性。`,
           responsible: `
-        Vue.js、Vuex、Axios、切版 (html/css/Javascript)`,
+        Vue2.js、Vuex、Axios、切版 (html/css/Javascript)。`,
           gitHub: "https://github.com/Yanhuabcd820/twitter2022",
-          demo: "https://bunreal.github.io/Twitter2022/",
+          demo: "",
           image: "https://tome20.com/yh/images/works1-2-cover.jpg",
           content_images: [],
           content_description: "",
         },
         {
-          name: "自在老，輕鬆顧 - 屏基高齡照顧服務專區",
+          name: "自在老，輕鬆顧 - 屏基高齡照顧服務專區 網站全面翻新工程",
           category: "網頁設計",
           category_id: 1,
           work_id: "1-3",
-          description:
-            "自在老為屏基地區高齡照顧單位，與客戶討論後，針對版面重新做配置，風格上則使用暖色調性與插畫輔助，使單位更符合溫暖、貼近人群的形象。",
+          description: `「自在老」為屏基地區高齡照顧單位。本專案將原網站進行全面翻新，在風格上，利用插畫與流線型等不規則的底圖為輔，且將手機版本做個別編排，並搭配 position 調整。專案後，瀏覽者在網站的總停留時間提升 60%。 
+客戶對原版本「自我篩檢評分量表」的使用流程，有很大的疑慮，與客戶討論優化使用流程後，也嘗試自己撰寫 JavaScript 評分機制。專案後，此評分表的使用率提升 50%。 `,
           responsible: `
-        前端切版 (html/css/Javascript)、UX 設計`,
+        前端切版 (html/css/Javascript)、UX 設計。`,
           gitHub: "",
           demo: "https://happyaging.org.tw/",
           image: "https://tome20.com/yh/images/works1-3-cover.jpg",
           content_images: [],
           content_description: "",
         },
-        // {
-        //   name: "API 套用練習",
-        //   category: "網頁設計",
-        //   category_id: 1,
-        //   work_id: "1-4",
-        //   description: `練習串接環保署開放資料API，使用chart.js套件將資料圖表露出。(API 來源：環保署環境資料開放平台)`,
-        //   responsible: `
-        // Vue3、切版 (html/css/Javascript)`,
-        //   gitHub: "#",
-        //   demo: "#",
-        //   image: "https://tome20.com/yh/images/works1-4-cover.jpg",
-        //   content_images: [],
-        //   content_description: "",
-        // },
         {
           name: "畢嘉士基金會 - 募一台不載人的車 募款網頁",
           category: "網頁設計",
           category_id: 1,
           work_id: "1-5",
           description: `
-        畢嘉士基金會長年致力於屏東偏鄉老人服務，根據客戶需求，本網頁使用到 HTML5+AdobeAnimate CC 製作動畫，讓畫面更生動活潑。`,
+          「畢嘉士基金會」長年致力於屏東偏鄉老人服務。客戶希望畫面中有一些動畫呈現，於是本專案使用 HTML5＋ Adobe Animate CC 製作動畫頁面，並在動畫與頁面內容的銜接上，進行許多測試與調整，以帶給瀏覽者更流暢的體驗。專案上線 5 個月，共募得 220 萬元資金。 `,
           responsible: `
-          Adobe Animate CC、前端切版 (html/css/Javascript)、UI/UX 設計`,
+          Adobe Animate CC、前端切版 (html/css/Javascript)、UI/UX 設計。`,
           gitHub: "https://github.com/Yanhuabcd820/bath-charity/",
           demo: "https://yanhuabcd820.github.io/bath-charity/",
           image: "https://tome20.com/yh/images/works1-5-cover.jpg",
+          content_images: [],
+          content_description: "",
+        },
+        {
+          name: "全國電子品牌官網設計",
+          category: "網頁設計",
+          category_id: 1,
+          work_id: "1-6",
+          description:
+            "此次將官網的風格重新定義，以往由於畫面太過複雜，而讓瀏覽者無法一目瞭然，尤其是電子型錄的不易閱讀性，此次針對痛點反覆討論，並將電子型錄導入電子書模式，讓瀏覽者能夠更易閱讀。",
+          responsible: `
+          前端切版 (html/css/Javascript)、UI/UX 設計`,
+          gitHub: "",
+          demo: "https://yanhuabcd820.github.io/electric/index.html",
+          image: "https://tome20.com/yh/images/works1-6-cover.jpg",
           content_images: [],
           content_description: "",
         },
@@ -94,6 +95,20 @@ export default {
           ],
           content_description: `經過整理及調查，發現過去的設計，因過於放大Logo，產品名稱反而過小或大小不一，且用色沒有規劃，導致頂好的產品視覺感受不好，進而影響消費者的不信任感，於是在與客戶討論過後，將整個版型做了大調動，並統一所有產品的圖塊比例，放大產品名稱，表示重視消費者的感受，而非品牌本身。色彩計畫上，全系列都使用高明度的色系，提升整體的新鮮感與消費者印象，藉由這次的改造，進而全面升級品牌的識別好感度及信任度。`,
         },
+        // {
+        //   name: "API 套用練習",
+        //   category: "網頁設計",
+        //   category_id: 1,
+        //   work_id: "1-5",
+        //   description: `練習串接環保署開放資料API，使用chart.js套件將資料圖表露出。(API 來源：環保署環境資料開放平台)`,
+        //   responsible: `
+        // Vue3、切版 (html/css/Javascript)`,
+        //   gitHub: "#",
+        //   demo: "#",
+        //   image: "https://tome20.com/yh/images/works1-4-cover.jpg",
+        //   content_images: [],
+        //   content_description: "",
+        // },
         {
           name: "全家 - 內部溝通品牌視覺化設計",
           category: "平面設計 / CIS",
@@ -150,7 +165,7 @@ export default {
         },
       ],
     });
-    //   works: [
+
     //     {
     //       name: "作品集網站",
     //       category: "網頁設計",

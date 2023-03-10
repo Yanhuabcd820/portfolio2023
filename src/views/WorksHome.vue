@@ -59,7 +59,7 @@ export default {
         <div class="works-describe" v-if="item.description">
           {{ item.description }}
           <br /><br />
-          <span v-if="item.responsible">負責項目：</span>
+          <span v-if="item.responsible">於本專案負責</span>
           {{ item.responsible }}
         </div>
         <div class="works-btn-wrap">
