@@ -23,7 +23,7 @@ export default {
           category: "網頁設計",
           category_id: 1,
           work_id: "1-2",
-          description: `本專案由 4 人（前後端分離）團隊，以遠端協作的方式完成開發，共歷時 14 天。自己主要負責整體網站樣式切版，及製作推文留言、like內容、好友狀態follow功能。這是自己第一次參與團隊協作專案，在 14 天專案時間限制下，團隊成員每天會進行討論並解決問題，過程雖辛苦但非常充實。也從這次的經驗，了解團隊合作的重要性。`,
+          description: `本專案由 4 人（前後端分離）團隊，以遠端協作的方式完成開發，共歷時 14 天。自己主要負責整體網站樣式切版，及製作推文留言、like 內容、好友狀態 follow 功能。`,
           responsible: `
         Vue2.js、Vuex、Axios、切版 (html/css/Javascript)。`,
           gitHub: "https://github.com/Yanhuabcd820/twitter2022",
