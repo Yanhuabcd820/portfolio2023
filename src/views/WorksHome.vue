@@ -7,10 +7,16 @@ export default {
     store.dispatch('ifDoneYet')
 
     const work_list = computed(()=> store.getters.work_list)
+    // const work_filter = {...work_list }
+    // const work_filter = ref({})
+    // watch(() => work_list.value, (idx) => {
+    //   work_filter.value = JSON.parse(JSON.stringify(idx))
+    // });
     const work_filter = ref({})
     watch(() => work_list.value, (idx) => {
-      work_filter.value = JSON.parse(JSON.stringify(idx))
+        work_filter.value = { ...idx }
     });
+    console.log('work_filter', work_filter.value)
     const category_id = ref();
     const filterWorks = (category) => {
       category_id.value = category;
