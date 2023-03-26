@@ -1,21 +1,29 @@
 <script>
-import { onMounted, watch, ref } from "vue";
+import { onMounted, computed, ref } from "vue";
 export default {
   name: "Header",
   props: ["width"],
   setup(props) {
     let widthData = ref(props.width); //偵測螢幕寬度
-    watch(
-      () => props.width,
-      (newWidth, oldWidth) => {
-        widthData.value = newWidth;
-        menuSwitch();
+    // watch(
+    //   () => props.width,
+    //   (newWidth, oldWidth) => {
+    //     widthData.value = newWidth;
+    //     menuSwitch();
+    //   }
+    // );
+    computed({
+      get: () => {
+        return widthData
+      },
+      set: (newWidth) => {
+        menuSwitch(newWidth)
       }
-    );
+    })
     const isOpen = ref(false);
-    const menuSwitch = () => {
+    const menuSwitch = (newWidth) => {
       //若螢幕寬度來到手機版,就啟動
-      if (widthData.value < 540) isOpen.value = !isOpen.value;
+      if (newWidth < 540) isOpen.value = !isOpen.value;
     };
 
     const target = ref();

@@ -13,8 +13,9 @@ export default {
     //   work_filter.value = JSON.parse(JSON.stringify(idx))
     // });
     const work_filter = ref({})
+
     watch(() => work_list.value, (idx) => {
-        work_filter.value = { ...idx }
+       filterWorks(1);
     });
     console.log('work_filter', work_filter.value)
     const category_id = ref();
