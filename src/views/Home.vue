@@ -1,6 +1,6 @@
 <script>
 import { useStore } from "vuex";
-import { computed, watch, ref } from "vue";
+import { onMounted, computed, watch, ref } from "vue";
 export default {
   props: ["width"],
   setup(props) {
@@ -12,11 +12,9 @@ export default {
     const numDecoLeft = ref(1);
     const decoWordSpeed = (widthData) => {
       if (widthData.value < 540) {
-        console.log(" < 540");
         numDecoRight.value = -0.1;
         numDecoLeft.value = 0.1;
       } else {
-        console.log(" > 990");
         numDecoRight.value = -0.2;
         numDecoLeft.value = 0.2;
       }
@@ -30,10 +28,12 @@ export default {
         decoWordSpeed(widthData);
       }
     );
+    onMounted(() => {
+      setTimeout(() => {
+        store.dispatch('ifDoneYes')
+      }, 1200)
+    })
 
-    setTimeout(() => {
-      store.dispatch('ifDoneYes')
-    }, 1200)
 
     return { widthData, numDecoRight, numDecoLeft };
   },
@@ -328,7 +328,7 @@ export default {
   line-height: 30px;
 }
 .deco-line.line2 {
-  top: 50px;
+  top: 20px;
   right: -40px;
   width: 150px;
   position: absolute;

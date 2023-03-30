@@ -1,14 +1,18 @@
 <script>
 import { useStore } from "vuex";
-import { computed} from "vue";
+import { computed, onMounted } from "vue";
 export default {
   setup() {
     const store = useStore();
     const ifDone = computed(() => store.getters.ifDone);
     store.dispatch('ifDoneYet')
-    setTimeout(() => {
-      store.dispatch('ifDoneYes')
-    }, 500)
+
+
+    onMounted(() => {
+      setTimeout(() => {
+        store.dispatch('ifDoneYes')
+      }, 500)
+    })
     return {
       ifDone
     };

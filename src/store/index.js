@@ -15,8 +15,8 @@ export default createStore({
     }
   },
   actions: {
-    worksInit({commit}){
-      return axios.get('./jsons/works.json').then(res=>{
+    async worksInit({commit}){
+      await axios.get('./jsons/works.json').then(res=>{
         commit('init',res.data)
       }).catch(err=>console.log('error:',err.message))
     },

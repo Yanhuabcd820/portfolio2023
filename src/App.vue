@@ -23,13 +23,11 @@ export default {
     const route = useRoute();
     const router = useRouter();
     const store = useStore()
-    const ifDone = computed(() => store.getters.ifDone );
-
+    const ifDone = computed(() => store.getters.ifDone);
     const getWorks = () => {
       store.dispatch('worksInit')
     }
 
-    
     onMounted(
       async () => {
         await router.isReady();
@@ -37,13 +35,11 @@ export default {
         getWorks()
       }
     );
-
-
     return { route, width, ifDone };
   },
 };
 </script>
-<template> 
+<template>
   <body class="body" :class="{ overHidden: !ifDone }">
     <Loading />
     <Header :width="width" />
@@ -57,9 +53,11 @@ export default {
 html {
   height: 100%;
 }
+
 div#app {
   height: 100%;
 }
+
 body {
   display: flex;
   flex-direction: column;
@@ -70,14 +68,17 @@ body {
   font-weight: 300;
   line-height: 26px;
 }
+
 .overHidden {
   overflow: hidden;
 }
+
 a {
   color: var(--grayDark);
   text-decoration: none;
   font-weight: 300;
 }
+
 h1.title,
 h1.name {
   font-size: 40px;
@@ -85,7 +86,9 @@ h1.name {
   font-weight: 700;
   margin-bottom: 50px;
 }
+
 @media screen and (min-width: 540px) {
+
   h1.title,
   h1.name {
     font-size: 50px;
@@ -94,6 +97,7 @@ h1.name {
     margin-bottom: 90px;
   }
 }
+
 h1.name {
   margin-bottom: 0px;
 }
@@ -101,6 +105,7 @@ h1.name {
 .deco-font {
   font-family: "Saira Condensed", sans-serif;
 }
+
 .deco-line {
   width: 80px;
   height: 1px;
@@ -108,33 +113,38 @@ h1.name {
   transform: rotate(-45deg);
   position: absolute;
 }
+
 @media screen and (min-width: 540px) {
   .deco-line {
     width: 180px;
   }
 }
+
 .deco-word-wrap {
   width: 100%;
   height: 240px;
   margin-top: -40px;
   overflow: hidden;
 }
+
 .deco-word {
   font-family: "Saira Condensed", sans-serif;
   color: var(--gray);
 }
+
 @media screen and (min-width: 768px) {
   .deco-word {
     font-family: "Saira Condensed", sans-serif;
     color: var(--gray);
   }
 }
+
 .wrap-inner {
   width: 95%;
   max-width: 1110px;
   margin: 0px auto;
 }
+
 .router-link-active {
   font-weight: 700;
-}
-</style>
+}</style>

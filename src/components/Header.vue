@@ -1,36 +1,31 @@
 <script>
-import { onMounted, computed, ref } from "vue";
+import { onMounted, computed,watch, ref } from "vue";
 export default {
   name: "Header",
   props: ["width"],
   setup(props) {
     let widthData = ref(props.width); //偵測螢幕寬度
-    // watch(
-    //   () => props.width,
-    //   (newWidth, oldWidth) => {
-    //     widthData.value = newWidth;
-    //     menuSwitch();
-    //   }
-    // );
-    computed({
-      get: () => {
-        return widthData
-      },
-      set: (newWidth) => {
-        menuSwitch(newWidth)
+    watch(
+      () => props.width,
+      (newWidth, oldWidth) => {
+        widthData.value = newWidth;
+        menuSwitch();
       }
-    })
+    );
     const isOpen = ref(false);
-    const menuSwitch = (newWidth) => {
-      //若螢幕寬度來到手機版,就啟動
-      if (newWidth < 540) isOpen.value = !isOpen.value;
+    const menuSwitch = () => {
+      //螢幕寬度有變動就先將click mobile關閉
+      isOpen.value = false;
+    };
+    const menuClick = () => {
+      isOpen.value = !isOpen.value;
     };
 
     const target = ref();
     const sticking = ref(false);
     let options = {
-      rootMargin: "100px",
-      threshold: 0,
+      rootMargin: "100px",//
+      threshold: 0,//觸發的比例門檻
     };
     const observer = new IntersectionObserver(([entry]) => {
       sticking.value = !entry.isIntersecting;
@@ -42,6 +37,7 @@ export default {
     return {
       target,
       sticking,
+      menuClick,
       menuSwitch,
       isOpen,
     };
@@ -53,7 +49,7 @@ export default {
   <div class="menuBack" :class="{ open: isOpen }"></div>
   <nav id="nav-wrap" class="nav sticky-menu" :class="{ sticking }">
     <div class="nav-inner" :class="{ open: isOpen }">
-      <div id="menu" :class="{ menuClose: isOpen }" @click="menuSwitch">
+      <div id="menu" :class="{ menuClose: isOpen }" @click="menuClick">
         <span class="bar bar1"></span>
         <span class="bar bar2"></span>
         <span class="bar bar3"></span>
@@ -66,30 +62,28 @@ export default {
       </div>
       <div class="navigation">
         <ul>
-          <li class="nav-li">
-            <router-link to="/" class="nav-li-inner" @click="menuSwitch"
+          <li class="nav-li" @click="menuSwitch">
+            <router-link to="/" class="nav-li-inner"
               >About</router-link
             >
           </li>
           /
-          <li class="nav-li">
-            <router-link to="/works" class="nav-li-inner" @click="menuSwitch"
+          <li class="nav-li" @click="menuSwitch">
+            <router-link to="/works" class="nav-li-inner"
               >Works</router-link
             >
           </li>
           /
-          <li class="nav-li">
-            <a
-              href="./doc/resume.pdf"
+          <li class="nav-li" @click="menuSwitch">
+            <a href="./doc/resume.pdf"
               class="nav-li-inner"
-              @click="menuSwitch"
               target="_blank"
               >Resume</a
             >
           </li>
           /
-          <li class="nav-li">
-            <router-link to="/contact" class="nav-li-inner" @click="menuSwitch"
+          <li class="nav-li" @click="menuSwitch">
+            <router-link to="/contact" class="nav-li-inner"
               >Contact</router-link
             >
           </li>
