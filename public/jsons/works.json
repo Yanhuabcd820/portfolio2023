@@ -6,7 +6,7 @@
     "work_id": "1-1",
     "description": "匯集過往的作品，並使用 Vue3 框架製作本作品集。",
     "responsible": "Vue3、切版 (html/css/Javascript)、UI/UX 設計。",
-    "gitHub": "https://gitHub.com/Yanhuabcd820/portfolio2023",
+    "gitHub": "https://github.com/Yanhuabcd820/portfolio2023/tree/add_json",
     "demo": "https://yanhuabcd820.gitHub.io/portfolio2023/",
     "image": "https://tome20.com/yh/images/works1-1-cover.jpg",
     "content_images": [],
